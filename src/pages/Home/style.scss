@@ -1,16 +1,49 @@
 #homePage {
     .homePageCont {
+        .searchCont {
+            display: flex;
+            padding: 20px;
+
+            input {
+                margin: 0 auto;
+                width: 30%;
+                padding: 5px 10px;
+                font-size: 20px;
+            }
+        }
+
         .cardCont {
             display: flex;
             flex-wrap: wrap;
-            gap: 30px;
+            justify-content: space-evenly;
+            row-gap: 20px;
+
 
             .card {
+                * {
+                    font-size: 20px;
+                }
+
+                &:hover .dropUp {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+
+                overflow: hidden;
                 width: 320px;
                 height: 360px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+                border-radius: 15px;
+                background-color: rgb(255, 255, 255);
+                padding: 25px;
+                position: relative;
 
                 .image {
                     width: 100%;
+                    max-height: 200px;
 
                     img {
                         width: 100%;
@@ -18,29 +51,114 @@
                         object-fit: contain;
                     }
                 }
+
+                .dropUp {
+                    opacity: 0;
+                    transition: .7s;
+                    transform: translateY(35px);
+                    border-top-right-radius: 15px;
+                    border-top-left-radius: 15px;
+                    background-color: rgb(63, 80, 94);
+                    width: 80%;
+                    align-self: center;
+                    position: absolute;
+                    bottom: 0;
+                    // left: 0;
+                    padding: 15px 0;
+
+                    .buttonsCont {
+                        margin: 0 auto;
+                        transition: .4s;
+                        display: flex;
+                        justify-content: space-evenly;
+                    }
+                }
+            }
+
+            .image {
+                position: relative;
+
+                .check {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    opacity: 0;
+                    transition: 1s;
+                    background-color: rgba(255, 255, 255, 0.541);
+
+                    i {
+                        color: green;
+                    }
+
+                    .fa-cart-shopping {
+                        color: black;
+                    }
+                }
+
+
+
+
+                .wishlist {
+                    position: absolute;
+                    top: 25px;
+                    right: 0;
+                    opacity: 0;
+                    transition: 1s;
+                    background-color: rgba(255, 255, 255, 0.541);
+
+                    i {
+                        color: green;
+                    }
+
+                }
+
+                .added {
+                    opacity: 1;
+                }
             }
         }
     }
 }
+
+.wishListButton {
+    position: relative;
+    border: 1px solid black;
+    width: 30px;
+    height: 30px;
+
+    i {
+        position: absolute;
+        color: red;
+        opacity: 0;
+        transition: .4s;
+        top: 20%;
+        left: 16%;
+    }
+
+    .visible {
+        opacity: 1;
+    }
+}
+
 .basketCont {
-    
-        display: flex;
-        flex-wrap: wrap;
-        gap: 30px;
 
-        .card {
-            width: 320px;
-            height: 360px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
 
-            .image {
+    .card {
+        width: 320px;
+        height: 360px;
+
+        .image {
+            width: 100%;
+
+            img {
                 width: 100%;
-
-                img {
-                    width: 100%;
-                    height: 200px;
-                    object-fit: contain;
-                }
+                height: 200px;
+                object-fit: contain;
             }
         }
-    
+    }
+
 }

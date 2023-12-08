@@ -40,7 +40,15 @@ function BasketProvider({ children }) {
         setBasket(basket.filter((x) => x.id !== item.id))
     }
 
-    const basketData = { basket, setBasket, addToBasket, countInc, countDec, removeFromBasket }
+    function checkIsBasket(item) {
+        const element = basket.find((x) => x.id === item.id);
+        if (element) {
+            
+            return true
+        }
+        return false
+    }
+    const basketData = { basket, setBasket, addToBasket, countInc, countDec, removeFromBasket ,checkIsBasket}
     return (
         <BasketContext.Provider value={basketData}>
             {children}
